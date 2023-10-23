@@ -1,0 +1,50 @@
+---
+apt:
+  repo_keys: []
+  repos:
+  - 'deb http://archive.ubuntu.com/ubuntu focal main multiverse universe restricted'
+  - 'deb http://archive.ubuntu.com/ubuntu focal-security main multiverse universe restricted'
+  packages:
+  - ncdu
+  # deb:
+  # # xxdiff
+  # - 'http://nl.archive.ubuntu.com/ubuntu/pool/universe/x/xxdiff/xxdiff_4.0.1+hg487+dfsg-1_amd64.deb'
+  # # libnetcdf
+  # - 'http://nl.archive.ubuntu.com/ubuntu/pool/universe/n/netcdf-cxx/libnetcdf-c++4-1_4.3.1-2build1_amd64.deb'
+  # # - 'https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb'
+
+
+miniconda:
+  name: patent-breakthrough
+  channels:
+  - conda-forge
+  - defaults
+  dependencies:
+  - python=3.9.10
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - torch
+  - torchvision
+  - transformers
+  - sentence-transformers
+  - dill
+  - nltk
+  - gensim
+  - bpemb
+  - polars=0.16
+  - pyarrow
+  - matplotlib
+  - tqdm
+  - h5py
+  - hyperopt
+  - ipykernel
+  - pip
+  # ... and tell conda to use it:
+  # - pip:
+  #   - requests
+  #   - ...
+  prefix: /etc/miniconda/envs
+
+    
