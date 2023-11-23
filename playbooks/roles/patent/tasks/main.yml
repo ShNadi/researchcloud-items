@@ -1,39 +1,25 @@
 ---
 - name: Copy python and notebooks to volume_2 directory
   block:
-    - name: Get homedir
-      register: homedir
-      find:
-        paths: ['/home']
-        file_type: directory
-
     - name: Create a directory if it does not exist
       ansible.builtin.file:
-        path: "{{item['path']}}/data/volume_2/patent_project/"
+        path: "/data/volume_2/patent_project/example"
         state: directory
-        mode: '0777'
-      with_items: "{{ homedir['files'] }}"
-
-    - name: Create a directory for notebook files if it does not exist
-      ansible.builtin.file:
-        path: "{{item['path']}}/data/volume_2/patent_project/example/"
-        state: directory
-        mode: '0777'
-      with_items: "{{ homedir['files'] }}"
-
+        
     - name: Create a directory for python files if it does not exist
       ansible.builtin.file:
-        path: "{{item['path']}}/data/volume_2/patent_project/scripts/"
+        path: "/data/volume_2/patent_project/scripts/"
         state: directory
-        mode: '0777'
-      with_items: "{{ homedir['files'] }}"
-
-    - name: Download create_novelty_impact.py
+                
+    - name: Download foo.conf
       ansible.builtin.get_url:
-        url: "https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create_novelty_impact.py"
-        dest: "{{item['path']}}/data/volume_2/patent_project/scripts/create_novelty_impact.py"
-        mode: '660'
-      with_items: "{{ homedir['files'] }}"
+        url: "{{ item.url }}"
+        dest: "{{ item.destination }}"
+      loop: 
+        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/examples/impact.ipynb', destination: '/data/volume_2/patent_project/example/impact.ipynb' }
+        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create_novelty_impact.py', destination: '/data/volume_2/patent_project/scripts/create_novelty_impact.py)' }
+        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create-embeddings.py', destination: '/data/volume_2/patent_project/scripts/create-embeddings.py)' }
+
 
     
 
