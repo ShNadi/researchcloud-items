@@ -28,14 +28,14 @@
         mode: '0777'
       with_items: "{{ homedir['files'] }}"
 
-    - name: Download foo.conf
+    - name: Download create_novelty_impact.py
       ansible.builtin.get_url:
-        url: "{{ item.url }}"
-        dest: "{{ item.destination }}"
+        url: "https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create_novelty_impact.py"
+        dest: "{{item['path']}}/data/volume_2/patent_project/scripts/create_novelty_impact.py"
         mode: '660'
-      loop: 
-        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/examples/impact.ipynb', destination: '{{item['path']}}/data/volume_2/patent_project/example/impact.ipynb' }
-        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create_novelty_impact.py', destination: '{{item['path']}}/data/volume_2/patent_project/scripts/create_novelty_impact.py)' }
-        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create-embeddings.py', destination: '{{item['path']}}/data/volume_2/patent_project/scripts/create-embeddings.py)' }
+      with_items: "{{ homedir['files'] }}"
 
+    
+
+        
       
