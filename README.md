@@ -1,2 +1,2 @@
 # researchcloud-items
-A repository to place configuration files to make research cloud components
+A repository to place Ansible playbook files to create a research cloud item. 
