@@ -16,7 +16,7 @@
         url: "{{ item.url }}"
         dest: "{{ item.destination }}"
       loop: 
-        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/examples/impact.ipynb', destination: '/data/volume_2/patent_project/example/impact.ipynb' }
+        - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/examples/walkthrough.ipynb', destination: '/data/volume_2/patent_project/example/walkthrough.ipynb' }
         - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create_novelty_impact.py', destination: '/data/volume_2/patent_project/scripts/create_novelty_impact.py)' }
         - { url: 'https://raw.githubusercontent.com/UtrechtUniversity/patent-breakthrough/main/scripts/create-embeddings.py', destination: '/data/volume_2/patent_project/scripts/create-embeddings.py)' }
 
